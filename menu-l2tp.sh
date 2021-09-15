@@ -1,33 +1,30 @@
 #!/bin/bash
-RED='\e[1;31m'
-GREEN='\e[0;32m'
-BLUE='\e[0;34m'
+red='\e[1;31m'
+green='\e[0;32m'
 NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
 clear
+figlet -f small l2tp/sstp | lolcat
 echo -e ""
-echo -e "${BLUE}=========================== ${RED}Menu L2TP ${BLUE}===========================${NC}" | lolcat
+echo -e "======================================" | lolcat
 echo -e ""
-echo -e "* 1  : Creating L2TP Account" | lolcat
-echo -e "* 2  : Deleting L2TP Account" | lolcat
-echo -e "* 3  : Extending L2TP Account Active Life" | lolcat
+echo -e "     [1]  Creating L2TP Account"
+echo -e "     [2]  Create Account PPTP"
+echo -e "     [3]  Deleting L2TP Account"
+echo -e "     [4]  Delete PPTP Account"
+echo -e "======================================" | lolcat
+echo -e "     [5]  Check User Login PPTP"
+echo -e "     [6]  Renew L2TP Account"
+echo -e "     [7]  Renew PPTP Account"
+echo -e "======================================" | lolcat
 echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu PPTP ${BLUE}===========================${NC}"
-echo -e ""
-echo -e "* 4  : Create Account PPTP" | lolcat
-echo -e "* 5  : Delete PPTP Account" | lolcat
-echo -e "* 6  : Extending PPTP Account Active Life" | lolcat
-echo -e "* 7  : Check User Login PPTP" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu SSTP ${BLUE}===========================${NC}"
-echo -e ""
-echo -e "* 8  : Create Account SSTP" | lolcat
-echo -e "* 9  : Delete SSTP Account" | lolcat
-echo -e "* 10 : Extending SSTP Account Active Life" | lolcat
-echo -e "* 11 : Check User Login SSTP" | lolcat
-echo -e ""
-echo -e "${GREEN}=================================================================${NC}" | lolcat
+echo -e "     [8]  Create Account SSTP"
+echo -e "     [9]  Delete SSTP Account"
+echo -e "    [10]  Renew SSTP Account"
+echo -e "    [11]  Check User Login SSTP"
+echo -e "     [x]  Exit"
+echo -e "======================================" | lolcat
 echo -e ""
 read -p "     Select From Options [1-11 or x] :  " num
 echo -e ""
