@@ -306,7 +306,8 @@ wget -O menu-tr "https://raw.githubusercontent.com/markdam92/Final/main/menu-tr.
 wget -O menu-v2ray "https://raw.githubusercontent.com/markdam92/Final/main/menu-v2ray.sh"
 wget -O menu-wr "https://raw.githubusercontent.com/markdam92/Final/main/menu-wr.sh"
 wget -O izin "https://raw.githubusercontent.com/markdam92/Final/main/izin.sh"
-
+wget -O bbr "https://raw.githubusercontent.com/markdam92/Final/main/bbr.sh"
+wget -O status "https://raw.githubusercontent.com/markdam92/Final/main/status.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x add-ssh
