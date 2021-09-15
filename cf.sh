@@ -7,12 +7,12 @@ rm -d /etc/v2ray
 MYIP=$(wget -qO- https://icanhazip.com);
 echo "Checking VPS"
 apt install jq curl -y
-DOMAIN=wuzzzssh.xyz
+DOMAIN=anemaxpro.cf
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.wuzzzssh.xyz
-WILDCARD=*.${sub}.wuzzzssh.xyz
-CF_ID=amingnurfalah@gmail.com
-CF_KEY=9fa80a9b75ba0ff00e5eda15a930425fd0f7d
+SUB_DOMAIN=${sub}.anemaxpro.cf
+WILDCARD=*.${sub}.anemaxpro.cf
+CF_ID=dynabyte.xyz@gmail.com
+CF_KEY=93b14e2953b87091a0cf98d46952827d
 set -euo pipefail
 IP=$(wget -qO- https://icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
