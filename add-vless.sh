@@ -37,7 +37,7 @@ systemctl restart v2ray@vless
 systemctl restart v2ray@vnone
 clear
 echo -e ""| lolcat
-echo -e "============V2RAY/VLESS========" |lolcat
+echo -e "=========-V2RAY/VLESS-=========" |lolcat
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "port TLS       : $tls"
