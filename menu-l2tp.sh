@@ -14,6 +14,7 @@ echo -e "     [2]  Create Account PPTP"
 echo -e "     [3]  Deleting L2TP Account"
 echo -e "     [4]  Delete PPTP Account"
 echo -e "======================================" | lolcat
+echo -e ""
 echo -e "     [5]  Check User Login PPTP"
 echo -e "     [6]  Renew L2TP Account"
 echo -e "     [7]  Renew PPTP Account"
