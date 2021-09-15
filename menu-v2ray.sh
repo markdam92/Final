@@ -1,28 +1,28 @@
 #!/bin/bash
-RED='\e[1;31m'
-GREEN='\e[0;32m'
-BLUE='\e[0;34m'
+red='\e[1;31m'
+green='\e[0;32m'
 NC='\e[0m'
-
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
 clear
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu VMESS ${BLUE}==========================${NC}"                    
+figlet -f small Panel V2ray | lolcat
 echo -e ""
-echo -e "- [01]      : Create V2ray Vmess WS Account" | lolcat
-echo -e "- [02]      : Deleting V2ray Vmess WS Account" | lolcat        
-echo -e "- [03]      : Extending Vmess Account Active Life" | lolcat
-echo -e "- [04]      : Check User Login V2ray" | lolcat
-echo -e "- [05]      : Renew Certificate V2ray Account" | lolcat                                                         
+echo -e "======================================" | lolcat
 echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
-echo -e "${BLUE}=========================== ${RED}Menu VLESS ${BLUE}==========================${NC}"
+echo -e "   [01]    Create Vmess v2ray WS"
+echo -e "   [02]    Delete Vmess v2ray WS"       
+echo -e "   [03]    Extending Vmess Account "
+echo -e "   [04]    Check User Login V2ray" 
+echo -e "   [05]    Renew Certificate V2ray Account"                                                         
 echo -e ""
-echo -e "- [06]      : Create V2ray Vless WS Account" | lolcat
-echo -e "- [07]      : Deleting V2ray Vless WS Account" | lolcat
-echo -e "- [08]      : Extending Vless Account Active Life" | lolcat
-echo -e "- [09]      : Check User Login V2ray" | lolcat
+echo -e "======================================" | lolcat
 echo -e ""
-echo -e "${GREEN}=================================================================${NC}"
+echo -e "   [06]    Create Vless V2ray Ws" 
+echo -e "   [07]    Deleting Vless V2ray Ws"
+echo -e "   [08]    Extending Vless Account"
+echo -e "-  [09]    Check User Login V2ray"
+echo -e ""
+echo -e "======================================" | lolcat
 echo -e ""
 read -p "     Select From Options [1-9 or x] :  " num
 echo -e ""
