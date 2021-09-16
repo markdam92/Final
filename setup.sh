@@ -67,7 +67,6 @@ history -c
 echo "1.2" > /home/ver
 clear
 echo " "
-sudo hostnamectl set-hostname SETUP-BY-DYNABYTE
 figlet -c Instalation Success | lolcat
 echo " "
 echo "--------------------------------------------------------------------------------" | tee -a log-install.txt
