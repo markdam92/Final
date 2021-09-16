@@ -6,9 +6,9 @@ MYIP=$(wget -qO- https://icanhazip.com);
 echo "Checking VPS"
 echo -n > /tmp/other.txt
 data=( `cat /etc/v2ray/vless.json | grep '^###' | cut -d ' ' -f 2`);
-echo "-------------------------------"; | lolcat
-echo "-----=[ Vless User Login ]=-----"; | lolcat
-echo "-------------------------------"; | lolcat
+echo "-------------------------------"; 
+echo "-----=[ Vless User Login ]=-----";
+echo "-------------------------------"; 
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
