@@ -13,7 +13,7 @@ WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
 jam=$(TZ='Asia/Kuala_Lumpur' date +%R)
 hari=$(date +"%A")
-tnggl=$(date +"%C %B %Y")
+tarikh=$(date +"%C %B %Y")
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
@@ -32,10 +32,10 @@ echo -e ""
 echo -e "=================================================================" | lolcat
 echo -e "                  [ INFORMASI VPS ]" | lolcat
 echo -e "=================================================================" | lolcat
-echo -e " Zona Waktu             :  Asia/Kuala_Lumpur"
+echo -e " Zon Waktu              :  Asia/Kuala_Lumpur"
 echo -e " Waktu                  :  $jam WIB"
 echo -e " Hari                   :  $hari"
-echo -e " Tanggal                :  $tnggl"
+echo -e " Tarikh                 :  $tnggl"
 echo -e "=================================================================" | lolcat
 echo -e " Model CPU              :  $cname "
 echo -e " Core                   :  $cores Core"
