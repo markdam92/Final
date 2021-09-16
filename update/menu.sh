@@ -68,7 +68,7 @@ echo -e "   [14]  Menu Webmin               [25]  Restart Service VPN"
 echo -e "   [15]  Auto Reboot               [26]  Multi Login SSH"
 echo -e "   [16]  Edit Banner SSH           [27]  Update Script"
 echo -e "   [17]  Status All Service VPN    [28]  Monitor Bandwith VPS"
-echo -e "   [X]     Exit"
+echo -e "   [X]   Exit"
 echo -e ""
 echo -e "================================================================" | lolcat
 read -p "     Select From Options [number or x] :  " num
