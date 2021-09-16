@@ -32,9 +32,6 @@ wget https://raw.githubusercontent.com/markdam92/Final/main/ins-vt.sh && chmod +
 wget https://raw.githubusercontent.com/markdam92/Final/main/ipsec.sh && chmod +x ipsec.sh && ./ipsec.sh
 #br-set
 wget https://raw.githubusercontent.com/markdam92/Final/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
-# Set Index
-cd /home/vps/public_html
-wget https://raw.githubusercontent.com/markdam92/Final/main/index.html
 #install ohp-server
 wget https://raw.githubusercontent.com/markdam92/Final/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 cd
