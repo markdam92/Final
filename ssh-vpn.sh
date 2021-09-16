@@ -308,6 +308,7 @@ wget -O menu-wr "https://raw.githubusercontent.com/markdam92/Final/main/menu-wr.
 wget -O izin "https://raw.githubusercontent.com/markdam92/Final/main/izin.sh"
 wget -O bbr "https://raw.githubusercontent.com/markdam92/Final/main/bbr.sh"
 wget -O status "https://raw.githubusercontent.com/markdam92/Final/main/status.sh"
+wget -O menu-sssr "https://raw.githubusercontent.com/markdam92/Final/main/menu-sssr.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x add-ssh
@@ -348,7 +349,9 @@ chmod +x menu-system
 chmod +x menu-tr
 chmod +x menu-v2ray
 chmod +x menu-wr
-chmod +x izin
+chmod +x bbr
+chmod +x status
+chmod +x menu-sssr
 
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
