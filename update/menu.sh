@@ -4,8 +4,34 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- https://icanhazip.com);
 echo "Checking VPS"
-izin
-clear
+
+if [[ -e /etc/debian_version ]]; then
+	OS=debian
+	RCLOCAL='/etc/rc.local'
+elif [[ -e /etc/centos-release || -e /etc/redhat-release ]]; then
+	OS=centos
+	RCLOCAL='/etc/rc.d/rc.local'
+	chmod +x /etc/rc.d/rc.local
+else
+        echo -e "${red}OS TIDAK SUPPORT !!!${off}"
+	echo -e "${red}Scripy Install Hanya Bekerja Pada Operating System Debian, Ubuntu dan Centos${off}"
+	exit 0
+fi
+declare -A nama_bulan
+nama_bulan[Jan]="Januari"
+nama_bulan[Feb]="Februari"
+nama_bulan[Mar]="Maret"
+nama_bulan[Apr]="April"
+nama_bulan[May]="Mei"
+nama_bulan[Jun]="Juni"
+nama_bulan[Jul]="Juli"
+nama_bulan[Aug]="Agustus"
+nama_bulan[Sep]="September"
+nama_bulan[Oct]="Oktober"
+nama_bulan[Nov]="November"
+nama_bulan[Dec]="Desember"
+bulan_ini=`date +%b`
+
 COUNTRY=$(curl -s ipinfo.io/country )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
@@ -13,7 +39,7 @@ WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
 jam=$(TZ='Asia/Kuala_Lumpur' date +%R)
 hari=$(date +"%A")
-tarikh=$(date +"%C %B %Y")
+tnggl=$(date +"%C %B %Y")
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
@@ -35,7 +61,7 @@ echo -e "=================================================================" | lo
 echo -e " Zon Waktu              :  Asia/Kuala_Lumpur"
 echo -e " Waktu                  :  $jam WIB"
 echo -e " Hari                   :  $hari"
-echo -e " Tarikh                 :  $tnggl"
+echo -e " Tanggal                 :  $tnggl"
 echo -e "=================================================================" | lolcat
 echo -e " Model CPU              :  $cname "
 echo -e " Core                   :  $cores Core"
