@@ -85,7 +85,7 @@ menu-wr
 menu-l2tp
 ;;
 4)
-menu-ss
+menu-sssr
 ;;
 5)
 menu-v2ray
