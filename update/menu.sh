@@ -70,14 +70,14 @@ echo -e " CITY                   :  $CITY "
 echo -e " IP                     :  $IPVPS "
 echo -e " Host                   :  $domain "
 echo -e "=================================================================" | lolcat
-echo -e "                     [ MENU TUNNELING ]" | lolcat
+echo -e "                  [ MENU TUNNELING ]" | lolcat
 echo -e "=================================================================" | lolcat
 echo -e ""
 echo -e "      [1]  SSH & OpenVPN         [2] WIREGUARD "
 echo -e "      [3]  L2TP/PPTP/SSTP        [4] SHADOWSOCKR "
 echo -e "      [5]  VMESS/VLESS           [6] TROJAN "
 echo -e ""
-echo -e "	             [ MENU SYSTEM ] " | lolcat
+echo -e "	            [ MENU SYSTEM ] " | lolcat
 echo -e ""
 echo -e "   [7]   Add domain Host For VPS   [18]  Limit Speed"
 echo -e "   [8]   Record Domain             [19]  Ram VPS"
