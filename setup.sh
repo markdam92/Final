@@ -117,7 +117,7 @@ echo ""  | tee -a log-install.txt
 echo "--------------------------------------------------------------------------------" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   - Script By               : DYNABYTE " | tee -a log-install.txt
-echo "   - Telegram                : t.me/T_STORE17"  | tee -a log-install.txt
+echo "   - Telegram                : t.me/dynabyte"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "================================================================================" | tee -a log-install.txt
 echo "-------------------------- Created By DYNABYTE ---------------------------" | tee -a log-install.txt
