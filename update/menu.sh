@@ -61,7 +61,7 @@ echo -e "=================================================================" | lo
 echo -e " Zon Waktu              :  Asia/Kuala_Lumpur"
 echo -e " Waktu                  :  $jam WIB"
 echo -e " Hari                   :  $hari"
-echo -e " Tanggal                 :  $tnggl"
+echo -e " Tanggal                :  $tnggl"
 echo -e "=================================================================" | lolcat
 echo -e " Model CPU              :  $cname "
 echo -e " Core                   :  $cores Core"
