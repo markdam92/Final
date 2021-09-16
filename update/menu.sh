@@ -51,9 +51,9 @@ echo -e "=================================================================" | lo
 echo -e "                     [ MENU TUNNELING ]" | lolcat
 echo -e "=================================================================" | lolcat
 echo -e ""
-echo -e "      [1]  Menu SSH & OpenVPN  	  [2]  Menu Wireguard"
-echo -e "      [3]  Menu L2TP/PPTP/SSTP     [4]  Menu ShadowsocksR"
-echo -e "      [5]  Menu VMESS/VLESS    	  [6]  Menu Trojan"
+echo -e "      [1]  SSH & OpenVPN         [2] WIREGUARD "
+echo -e "      [3]  L2TP/PPTP/SSTP        [4] SHADOWSOCKR "
+echo -e "      [5]  VMESS/VLESS           [6] TROJAN "
 echo -e ""
 echo -e "	             [ MENU SYSTEM ] " | lolcat
 echo -e ""
