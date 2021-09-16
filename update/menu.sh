@@ -27,10 +27,10 @@ tram=$( free -m | awk 'NR==2 {print $2}' )
 #swap=$( free -m | awk 'NR==4 {print $2}' )
 up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 
-figlet Dynabyte | lolcat
+figlet   Dynabyte | lolcat
 echo -e ""
 echo -e "=================================================================" | lolcat
-echo -e "                        [ INFORMASI VPS ]" | lolcat
+echo -e "                  [ INFORMASI VPS ]" | lolcat
 echo -e "=================================================================" | lolcat
 echo -e " Zona Waktu             :  Asia/Kuala_Lumpur"
 echo -e " Waktu                  :  $jam WIB"
@@ -48,7 +48,7 @@ echo -e " CITY                   :  $CITY "
 echo -e " IP                     :  $IPVPS "
 echo -e " Host                   :  $domain "
 echo -e "=================================================================" | lolcat
-echo -e "                    [ MENU TUNNELING ]" | lolcat
+echo -e "                     [ MENU TUNNELING ]" | lolcat
 echo -e "=================================================================" | lolcat
 echo -e ""
 echo -e " *	[1]  Menu SSH & OpenVPN  	* [2]  Menu Wireguard"
