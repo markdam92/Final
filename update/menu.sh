@@ -103,7 +103,7 @@ hostnya
 certv2ray
 ;;
 10)
-panel-port
+change-port
 ;;
 11)
 autobackup
