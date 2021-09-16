@@ -1,144 +1,169 @@
 #!/bin/bash
-yl='\e[031;1m'
-bl='\e[36;1m'
-gl='\e[32;1m'
-
-clear 
-cat /usr/bin/bannerku | lolcat
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- https://icanhazip.com);
+echo "Checking VPS"
+izin
+clear
+COUNTRY=$(curl -s ipinfo.io/country )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
-	cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
-	cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
-	freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
-	tram=$( free -m | awk 'NR==2 {print $2}' )
-	swap=$( free -m | awk 'NR==4 {print $2}' )
-	up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
+jam=$(TZ='Asia/Kuala_Lumpur' date +%R)
+hari=$(date +"%A")
+tnggl=$(date +"%C %B %Y")
+source /var/lib/premium-script/ipvps.conf
+if [[ "$IP" = "" ]]; then
+domain=$(cat /etc/v2ray/domain)
+else
+domain=$IP
+fi
+cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
+cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
+freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
+tram=$( free -m | awk 'NR==2 {print $2}' )
+#swap=$( free -m | awk 'NR==4 {print $2}' )
+up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 
-	echo -e "   \e[032;1mCPU Model:\e[0m $cname"
-	echo -e "   \e[032;1mNumber Of Cores:\e[0m $cores"
-	echo -e "   \e[032;1mCPU Frequency:\e[0m $freq MHz"
-	echo -e "   \e[032;1mTotal Amount Of RAM:\e[0m $tram MB"
-	echo -e "   \e[032;1mSystem Uptime:\e[0m $up"
-	echo -e "   \e[032;1mIsp Name:\e[0m $ISP"
-	echo -e "   \e[032;1mCity:\e[0m $CITY"
-	echo -e "   \e[032;1mTime:\e[0m $WKT"
-	echo -e "   \e[033;1mIPVPS:\e[0m $IPVPS"
-echo -e  ""
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   "                             MENU OPTION\e[m" | lolcat 
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   "   1\e[1;33m)\e[m SSH & OpenVPN Menu"
-echo -e   "   2\e[1;33m)\e[m Panel Wireguard "
-echo -e   "   3\e[1;33m)\e[m Panel SSR & SS Account"
-echo -e   "   4\e[1;33m)\e[m Panel V2Ray"
-echo -e   "   5\e[1;33m)\e[m Panel VLess"
-echo -e   "   6\e[1;33m)\e[m Panel TRojan"
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   "                             SYSTEM MENU\e[m" | lolcat 
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   "   7\e[1;33m)\e[m   Add Subdomain Host For VPS"
-echo -e   "   8\e[1;33m)\e[m   Renew Certificate V2RAY"
-echo -e   "   9\e[1;33m)\e[m   Change Port All Account"
-echo -e   "   10\e[1;33m)\e[m  Autobackup Data VPS"
-echo -e   "   11\e[1;33m)\e[m  Backup Data VPS"
-echo -e   "   12\e[1;33m)\e[m  Restore Data VPS"
-echo -e   "   13\e[1;33m)\e[m  Webmin Menu"
-echo -e   "   14\e[1;33m)\e[m  Limit Bandwith Speed Server"
-echo -e   "   15\e[1;33m)\e[m  Check Usage of VPS Ram" 
-echo -e   "   16\e[1;33m)\e[m  Reboot VPS"
-echo -e   "   17\e[1;33m)\e[m  Speedtest VPS"
-echo -e   "   18\e[1;33m)\e[m  Information Display System" 
-echo -e   "   19\e[1;33m)\e[m  Info Script Auto Install"
-echo -e   "   20\e[1;33m)\e[m  Install BBR"
-echo -e   "   21\e[1;33m)\e[m  Add ID Cloudflare"
-echo -e   "   22\e[1;33m)\e[m  Pointing BUG"
-echo -e   "   23\e[1;33m)\e[m  Clear log"
-echo -e   "   24\e[1;33m)\e[m  Auto Reboot"
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   "   x)   Exit" | lolcat
-echo -e   "  \e[1;32m════════════════════════════════════════════════════════════\e[m" | lolcat
-echo -e   ""
-read -p "     Select From Options [1-24 or x] :  " menu
-echo -e   ""
-case $menu in
+figlet Dynabyte | lolcat
+echo -e ""
+echo -e "=================================================================" | lolcat
+echo -e "                        [ INFORMASI VPS ]" | lolcat
+echo -e "=================================================================" | lolcat
+echo -e " Zona Waktu             :  Asia/Kuala_Lumpur"
+echo -e " Waktu                  :  $jam WIB"
+echo -e " Hari                   :  $hari"
+echo -e " Tanggal                :  $tnggl"
+echo -e "=================================================================" | lolcat
+echo -e " Model CPU              :  $cname "
+echo -e " Core                   :  $cores Core"
+echo -e " Frekuensi CPU          :  $freq MHz "
+echo -e " RAM                    :  $tram MB "
+echo -e " Uptime                 :  $up "
+echo -e " ISP                    :  $ISP "
+echo -e " COUNTRY                :  $COUNTRY "
+echo -e " CITY                   :  $CITY "
+echo -e " IP                     :  $IPVPS "
+echo -e " Host                   :  $domain "
+echo -e "=================================================================" | lolcat
+echo -e "                    [ MENU TUNNELING ]" | lolcat
+echo -e "=================================================================" | lolcat
+echo -e ""
+echo -e " *	  [1]  Menu SSH & OpenVPN  	* [2]  Menu Wireguard"
+echo -e " *	  [3]  Menu L2TP/PPTP/SSTP  * [4]  Menu Shadowsocks/R"
+echo -e " *	  [5]  Menu VMESS/VLESS  	* [6]  Menu Trojan"
+echo -e ""
+echo -e "	             [ MENU SYSTEM ] " | lolcat
+echo -e ""
+echo -e "   7  =>   Add domain Host For VPS   18 =>  Limit Speed"
+echo -e "   8  =>   Record Domain             19 =>  Ram VPS"
+echo -e "   9  =>   Renew Certificate V2RAY   20 =>  Ganti Password VPS"
+echo -e "   10 =>   Change Port All Account   21 =>  Reboot VPS"
+echo -e "   11 =>   Autobackup VPS            22 =>  Speedtest VPS"
+echo -e "   12 =>   Backup VPS                23 =>  Informasi System"
+echo -e "   13 =>   Restore VPS               24 =>  Info Script"
+echo -e "   14 =>   Menu Webmin               25 =>  Restart Service VPN"
+echo -e "   15 =>   Auto Reboot               26 =>  Multi Login SSH"
+echo -e "   16 =>   Edit Banner SSH           27 =>  Update Script"
+echo -e "   17 =>   Status All Service VPN    28 =>  Monitor Bandwith VPS"
+echo -e "   [x]     Exit"
+echo -e ""
+echo -e "================================================================" | lolcat
+read -p "     Select From Options [number or x] :  " num
+echo -e "================================================================" | lolcat
+echo -e ""
+case $num in
 1)
-ssh
+menu-ssh
 ;;
 2)
-wgr
+menu-wr
 ;;
 3)
-ssssr
+menu-l2tp
 ;;
 4)
-v2raay
+menu-ss
 ;;
 5)
-vleess
+menu-v2ray
 ;;
 6)
-trojaan
+menu-tr
 ;;
 7)
 add-host
 ;;
 8)
-certv2ray
+hostnya
 ;;
 9)
-change-port
+certv2ray
 ;;
 10)
-autobackup
+panel-port
 ;;
 11)
-backup
+autobackup
 ;;
 12)
-restore
+backup
 ;;
 13)
-wbmn
+restore
 ;;
 14)
-limit-speed
+wbmn
 ;;
 15)
-ram
+auto-reboot
 ;;
 16)
-reboot
+nano /etc/issue.net
 ;;
 17)
-speedtest
+status
 ;;
 18)
-info
+limit-speed
 ;;
 19)
-about
+ram
 ;;
 20)
-bbr
+passwd
 ;;
 21)
-cff
+reboot
 ;;
 22)
-cfh
+speedtest
 ;;
 23)
-clear-log
+info
 ;;
 24)
-autoreboot
+about
+;;
+25)
+restart
+;;
+26)
+autokill
+;;
+27)
+update
+;;
+28)
+vnstat
 ;;
 x)
+clear
 exit
 ;;
 *)
-echo  "Please enter an correct number"
+echo "Please enter an correct number"
 ;;
 esac
