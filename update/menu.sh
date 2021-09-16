@@ -53,7 +53,7 @@ echo -e "=================================================================" | lo
 echo -e ""
 echo -e " *	  [1]  Menu SSH & OpenVPN  	* [2]  Menu Wireguard"
 echo -e " *	  [3]  Menu L2TP/PPTP/SSTP  * [4]  Menu Shadowsocks/R"
-echo -e " *	  [5]  Menu VMESS/VLESS  	* [6]  Menu Trojan"
+echo -e " *	  [5]  Menu VMESS/VLESS    	* [6]  Menu Trojan"
 echo -e ""
 echo -e "	             [ MENU SYSTEM ] " | lolcat
 echo -e ""
