@@ -251,13 +251,13 @@ netfilter-persistent reload
 #SSLH
 apt-get install sslh -y
 #Forward 443 = 109 = 567
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/markdam92/DorkScript/main/sslh.conf"
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/markdam92/Final/main/sslh.conf"
 service sslh restart
 
 #install webscket
 cd
 
-wget https://raw.githubusercontent.com/markdam92/DorkScript/main/websock.sh && chmod +x websock.sh && ./websock.sh
+wget https://raw.githubusercontent.com/markdam92/Final/main/websock.sh && chmod +x websock.sh && ./websock.sh
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/websock.sh
