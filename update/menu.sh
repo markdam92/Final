@@ -1,5 +1,10 @@
 #!/bin/bash
+
 clear
+figlet -f slant DynabyteVPN | lolcat
+red='\x1b[91m'
+cyan='\x1b[96m'
+off='\x1b[m'
 
 if [[ -e /etc/debian_version ]]; then
 	OS=debian
@@ -28,14 +33,21 @@ nama_bulan[Nov]="November"
 nama_bulan[Dec]="Desember"
 bulan_ini=`date +%b`
 
+color3='\e[031;1m'
+color2='\e[34;1m'
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 COUNTRY=$(curl -s ipinfo.io/country )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
-jam=$(TZ='Asia/Kuala_Lumpur' date +%R)
+jam=$(TZ='Asia/Jakarta' date +%R)
 hari=$(date +"%A")
-tnggl=$(date +"%C %B %Y")
+tnggl=$(date +"%d")
+bln=${nama_bulan[$bulan_ini]}
+thn=$(date +"%Y")
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
@@ -46,38 +58,37 @@ cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
-#swap=$( free -m | awk 'NR==4 {print $2}' )
+swap=$( free -m | awk 'NR==4 {print $2}' )
 up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
-
-figlet -f slant DynabyteVPN | lolcat
-echo -e ""
-echo -e "=================================================================" | lolcat
-echo -e "                  [ INFORMASI VPS ]" | lolcat
-echo -e "=================================================================" | lolcat
-echo -e " Zon Waktu              :  Asia/Kuala_Lumpur"
-echo -e " Waktu                  :  $jam WIB"
-echo -e " Hari                   :  $hari"
-echo -e " Tanggal                :  $tnggl"
-echo -e "=================================================================" | lolcat
-echo -e " Model CPU              :  $cname "
-echo -e " Core                   :  $cores Core"
-echo -e " Frekuensi CPU          :  $freq MHz "
-echo -e " RAM                    :  $tram MB "
-echo -e " Uptime                 :  $up "
-echo -e " ISP                    :  $ISP "
-echo -e " COUNTRY                :  $COUNTRY "
-echo -e " CITY                   :  $CITY "
-echo -e " IP                     :  $IPVPS "
-echo -e " Host                   :  $domain "
-echo -e "=================================================================" | lolcat
-echo -e "                  [ MENU TUNNELING ]" | lolcat
-echo -e "=================================================================" | lolcat
-echo -e ""
+	
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "                    INFORMASI VPS" | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e " ${white}Zona Waktu             :  Asia/Kuala_Lumpur ${NC}"
+echo -e " ${white}Waktu                  :  $jam WIB ${NC}"
+echo -e " ${white}Hari                   :  $hari ${NC}"
+echo -e " ${white}Tanggal                :  $tnggl $bln $thn ${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e " ${white}Model CPU              : $cname ${NC}"
+echo -e " ${white}Nomor Core             :  $cores ${NC}"
+echo -e " ${white}Frekuensi CPU          : $freq MHz ${NC}"
+echo -e " ${white}Jumlah RAM             :  $tram MB ${NC}"
+echo -e " ${white}Jumlah Swap            :  $swap MB ${NC}"
+echo -e " ${white}Waktu Aktif            : $up ${NC}"
+echo -e " ${white}ISP                    :  $ISP ${NC}"
+echo -e " ${white}COUNTRY                :  $COUNTRY ${NC}"
+echo -e " ${white}CITY                   :  $CITY ${NC}"
+echo -e " ${white}IP VPS                 :  $IPVPS ${NC}"
+echo -e " ${white}Host VPS               :  $domain ${NC}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "                      MENU TUNNELING " | lolcat
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${white}"
 echo -e "      [1]  SSH & OpenVPN         [2] WIREGUARD "
 echo -e "      [3]  L2TP/PPTP/SSTP        [4] SHADOWSOCKR "
 echo -e "      [5]  VMESS/VLESS           [6] TROJAN "
 echo -e ""
-echo -e "	            [ MENU SYSTEM ] " | lolcat
+echo -e "	             [ MENU SYSTEM ] " | lolcat
 echo -e ""
 echo -e "   [7]   Add domain Host For VPS   [18]  Limit Speed"
 echo -e "   [8]   Record Domain             [19]  Ram VPS"
@@ -91,11 +102,12 @@ echo -e "   [15]  Auto Reboot               [26]  Multi Login SSH"
 echo -e "   [16]  Edit Banner SSH           [27]  Update Script"
 echo -e "   [17]  Status All Service VPN    [28]  Monitor Bandwith VPS"
 echo -e "   [X]   Exit"
-echo -e ""
-echo -e "================================================================" | lolcat
-read -p "     Select From Options [number or x] :  " num
-echo -e "================================================================" | lolcat
-echo -e ""
+echo -e "${off}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "  ${white}x =>  Exit${off}"
+echo -e "${red}══════════════════════════════════════════════════════════${NC}"
+echo -e "${white}"
+read -p " [ # ] Select From Options :  "  num
 case $num in
 1)
 menu-ssh
