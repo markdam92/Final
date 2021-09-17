@@ -62,7 +62,7 @@ swap=$( free -m | awk 'NR==4 {print $2}' )
 up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 	
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
-echo -e "                    INFORMASI VPS" | lolcat
+echo -e "                         INFORMASI VPS" | lolcat
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e " ${white}Zona Waktu             :  Asia/Kuala_Lumpur ${NC}"
 echo -e " ${white}Waktu                  :  $jam WIB ${NC}"
@@ -81,7 +81,7 @@ echo -e " ${white}CITY                   :  $CITY ${NC}"
 echo -e " ${white}IP VPS                 :  $IPVPS ${NC}"
 echo -e " ${white}Host VPS               :  $domain ${NC}"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
-echo -e "                      MENU TUNNELING " | lolcat
+echo -e "                        MENU TUNNELING " | lolcat
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "${white}"
 echo -e "      [1]  SSH & OpenVPN         [2] WIREGUARD "
@@ -108,6 +108,7 @@ echo -e "  ${white}x =>  Exit${off}"
 echo -e "${red}══════════════════════════════════════════════════════════${NC}"
 echo -e "${white}"
 read -p " [ # ] Select From Options :  "  num
+echo -e ""
 case $num in
 1)
 menu-ssh
