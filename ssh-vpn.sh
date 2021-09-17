@@ -79,13 +79,13 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
 # install
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
-#echo "clear" >> .profile
-#echo "neofetch" >> .profile
-# Admin Welcome
-wget -O /usr/bin/welcomeadmin "https://https://raw.githubusercontent.com/markdam92/Final/main/welcomeadmin.sh"
-chmod +x /usr/bin/welcomeadmin
-echo "welcomeadmin" >> .profile
-rm -f /root/welcomeadmin
+echo "clear" >> .profile
+echo "figlet -f slant DYNABYTE | lolcat" >> .profile
+echo "sleep 1" >> .profile
+echo "clear" >> .profile
+echo "neofetch" >> .profile
+echo "echo -e \"\x1b[96m - DYNABYTE\x1b[m\"" >> .profile
+echo "echo -e \"\x1b[96m - Silahkan Ketik\x1b[m \x1b[92mmenu\x1b[m \x1b[96mUntuk Melihat daftar Perintah\x1b[m\"" >> .profile
 
 
 # install webserver
